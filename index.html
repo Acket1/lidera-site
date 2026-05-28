@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ЛидерА школа детского развития — Ангарск</title>
+
+  <meta name="description" content="ЛидерА школа детского развития в Ангарске: подготовка к школе, логопед, психолог, подготовка к ВПР, ОГЭ и ЕГЭ, танцевальная студия, пилатес, индивидуальные и онлайн занятия." />
+
+  <style>
+    :root {
+      --blue: #2c2388;
+      --blue-dark: #151144;
+      --green: #22b86a;
+      --green-dark: #12804a;
+      --red: #b91c1c;
+      --black: #111827;
+      --gray: #5b6475;
+      --light: #f5f7fb;
+      --white: #ffffff;
+      --border: #e5e7eb;
+      --shadow: 0 16px 40px rgba(17, 24, 39, 0.12);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--black);
+      color: #fff;
+      padding: 9px 0;
+      font-size: 14px;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo img {
+      width: 78px;
+      height: 58px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .logo-text strong {
+      display: block;
+      color: var(--blue);
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .logo-text span {
+      display: block;
+      color: var(--gray);
+      font-size: 13px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-size: 15px;
+      color: #25304a;
+    }
+
+    .menu a {
+      transition: 0.2s;
+    }
+
+    .menu a:hover {
+      color: var(--red);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 21px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 15px;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(185, 28, 28, 0.24);
+    }
+
+    .btn-primary:hover {
+      background: #981b1b;
+      transform: translateY(-2px);
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(34, 184, 106, 0.22);
+    }
+
+    .btn-green:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--blue);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 78px 0 74px;
+      background:
+        radial-gradient(circle at top left, rgba(34, 184, 106, 0.18), transparent 34%),
+        radial-gradient(circle at top right, rgba(44, 35, 136, 0.18), transparent 34%),
+        linear-gradient(180deg, #fff 0%, #f5f7fb 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -100px;
+      bottom: -100px;
+      border-radius: 50%;
+      background: rgba(185, 28, 28, 0.08);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(44, 35, 136, 0.09);
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -1.4px;
+      color: var(--black);
+    }
+
+    .lead {
+      font-size: 19px;
+      color: #3d465c;
+      max-width: 680px;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 760px;
+    }
+
+    .hero-point {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 13px;
+      font-weight: 700;
+      color: #28324a;
+    }
+
+    .hero-point span {
+      color: var(--green);
+      margin-right: 5px;
+    }
+
+    .hero-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+
+    .hero-logo-box {
+      text-align: center;
+      padding: 16px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      margin-bottom: 22px;
+    }
+
+    .hero-logo-box img {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-icon {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(34, 184, 106, 0.13);
+      color: var(--green-dark);
+      font-weight: 900;
+    }
+
+    .info-row strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--black);
+    }
+
+    .info-row span {
+      color: var(--gray);
+    }
+
+    .section {
+      padding: 78px 0;
+    }
+
+    .section-white {
+      background: #fff;
+    }
+
+    .section-head {
+      max-width: 800px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.15;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--gray);
+      font-size: 17px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .about-card {
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.06);
+      padding: 30px;
+    }
+
+    .about-card h3 {
+      margin-top: 0;
+      color: var(--red);
+      font-size: 25px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .feature {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .feature b {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+
+    .directions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .direction-card {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      padding: 24px;
+      box-shadow: 0 10px 26px rgba(17, 24, 39, 0.06);
+      transition: 0.22s;
+    }
+
+    .direction-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--blue), var(--green));
+    }
+
+    .direction-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .direction-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 23px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      margin-bottom: 16px;
+    }
+
+    .direction-card h3 {
+      margin: 0 0 10px;
+      color: var(--black);
+      font-size: 21px;
+    }
+
+    .direction-card p {
+      color: var(--gray);
+      margin: 0 0 14px;
+    }
+
+    .direction-card ul {
+      padding-left: 20px;
+      margin: 0;
+      color: #30384d;
+    }
+
+    .direction-card li {
+      margin-bottom: 6px;
+    }
+
+    .format-box {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+      color: #fff;
+      border-radius: 26px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .format-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .format-item b {
+      display: block;
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .format-item p {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .schedule-card {
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 22px;
+      box-shadow: 0 10px 25px rgba(17, 24, 39, 0.06);
+    }
+
+    .schedule-card h3 {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 20px;
+    }
+
+    .schedule-card p {
+      margin: 8px 0;
+      color: #30384d;
+    }
+
+    .schedule-card b {
+      color: var(--red);
+    }
+
+    .teachers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .teacher-card {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 22px;
+      box-shadow: 0 10px 25px rgba(17, 24, 39, 0.06);
+    }
+
+    .avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 58px;
+    }
+
+    .teacher-card h3 {
+      margin: 0 0 5px;
+      color: var(--red);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .teacher-card p {
+      margin: 0;
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    .telegram-section {
+      background:
+        radial-gradient(circle at top left, rgba(34, 184, 106, 0.16), transparent 30%),
+        linear-gradient(135deg, var(--blue-dark), var(--blue));
+      color: #fff;
+    }
+
+    .telegram-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 26px;
+      padding: 34px;
+    }
+
+    .telegram-card h2 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 40px);
+    }
+
+    .telegram-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 17px;
+      max-width: 760px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-card,
+    .form-card {
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.06);
+      padding: 28px;
+    }
+
+    .contact-card h3,
+    .form-card h3 {
+      margin-top: 0;
+      color: var(--blue);
+      font-size: 25px;
+    }
+
+    .contact-line {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-line:last-child {
+      border-bottom: none;
+    }
+
+    .contact-line b {
+      display: block;
+      color: var(--red);
+      margin-bottom: 4px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 15px;
+      font: inherit;
+      outline: none;
+      background: #fbfcff;
+      margin-bottom: 12px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(44, 35, 136, 0.08);
+    }
+
+    textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .small-text {
+      color: var(--gray);
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .footer {
+      background: var(--black);
+      color: #fff;
+      padding: 26px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1050px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .telegram-card {
+        grid-template-columns: 1fr;
+      }
+
+      .directions-grid,
+      .teachers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .schedule-grid,
+      .format-box {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .menu {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        display: block;
+      }
+
+      .topbar-inner div {
+        margin: 3px 0;
+      }
+
+      .nav {
+        min-height: 70px;
+      }
+
+      .logo img {
+        width: 58px;
+        height: 44px;
+      }
+
+      .logo-text strong {
+        font-size: 16px;
+      }
+
+      .logo-text span {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 52px 0;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-points,
+      .directions-grid,
+      .teachers-grid,
+      .schedule-grid,
+      .features,
+      .format-box {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .hero-card,
+      .about-card,
+      .contact-card,
+      .form-card,
+      .telegram-card,
+      .format-box {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>Ангарск, 92/93, дом 19</div>
+      <div>
+        Телефон:
+        <a href="tel:+79027603747">8-902-760-37-47</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="ЛидерА школа детского развития">
+        <img src="images/logo.png" alt="ЛидерА школа детского развития">
+        <div class="logo-text">
+          <strong>ЛидерА</strong>
+          <span>школа детского развития</span>
+        </div>
+      </a>
+
+      <nav class="menu">
+        <a href="#about">О школе</a>
+        <a href="#directions">Направления</a>
+        <a href="#format">Формат</a>
+        <a href="#schedule">Расписание</a>
+        <a href="#teachers">Педагоги</a>
+        <a href="#telegram">Telegram</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <a class="btn btn-primary" href="#contacts">Записаться</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="eyebrow">Школа развития для детей и подростков в Ангарске</div>
+
+          <h1>ЛидерА школа детского развития</h1>
+
+          <p class="lead">
+            Подготовка к школе, помощь в учёбе, логопед, психолог, подготовка к ВПР,
+            ОГЭ и ЕГЭ, танцевальная студия, пилатес и развивающие направления.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacts">Записаться на консультацию</a>
+            <a class="btn btn-outline" href="#directions">Посмотреть направления</a>
+          </div>
+
+          <div class="hero-points">
+            <div class="hero-point"><span>✓</span> Основной формат — индивидуально</div>
+            <div class="hero-point"><span>✓</span> Есть онлайн-занятия</div>
+            <div class="hero-point"><span>✓</span> Мини-группы</div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-logo-box">
+            <img src="images/logo.png" alt="Логотип ЛидерА">
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon">☎</div>
+            <div>
+              <strong>Телефон</strong>
+              <span><a href="tel:+79027603747">8-902-760-37-47</a></span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon">⌂</div>
+            <div>
+              <strong>Адрес</strong>
+              <span>г. Ангарск, 92/93, дом 19</span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon">★</div>
+            <div>
+              <strong>Формат занятий</strong>
+              <span>В основном индивидуально. Также доступны мини-группы и онлайн-формат.</span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-icon">→</div>
+            <div>
+              <strong>Telegram</strong>
+              <span>
+                <a href="https://t.me/+bdnsUQuVfgE4Zjgy" target="_blank">
+                  Новости и объявления школы
+                </a>
+              </span>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="section section-white" id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>О школе</h2>
+          <p>
+            «ЛидерА» — это школа детского развития, где детям помогают учиться,
+            развиваться, становиться увереннее и готовиться к важным этапам образования.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Для родителей, которым важен результат</h3>
+            <p>
+              В школе собраны образовательные, развивающие и коррекционные направления:
+              подготовка к школе, логопед, психолог, репетиторство, подготовка к экзаменам,
+              творчество, танцы и мягкий фитнес.
+            </p>
+            <p>
+              Основной формат занятий — индивидуальный. Это помогает педагогу уделить максимум
+              внимания ребёнку, понять его уровень и подобрать подходящий темп обучения.
+            </p>
+            <p>
+              При необходимости возможны онлайн-занятия, а также занятия в мини-группах.
+            </p>
+            <a class="btn btn-green" href="#contacts">Уточнить свободные места</a>
+          </div>
+
+          <div class="features">
+            <div class="feature">
+              <b>Индивидуальный подход</b>
+              Занятия выстраиваются с учётом возраста, уровня подготовки и задач ребёнка.
+            </div>
+
+            <div class="feature">
+              <b>Онлайн и офлайн</b>
+              Основные занятия проходят очно, но при необходимости доступен онлайн-формат.
+            </div>
+
+            <div class="feature">
+              <b>Подготовка к школе и экзаменам</b>
+              Помощь дошкольникам, школьникам и подросткам в освоении учебных программ.
+            </div>
+
+            <div class="feature">
+              <b>Поддержка семьи</b>
+              Психологические консультации и помощь в детско-родительских вопросах.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="directions">
+      <div class="container">
+        <div class="section-head">
+          <h2>Направления</h2>
+          <p>
+            Основные программы школы «ЛидерА» для дошкольников, школьников,
+            подростков и взрослых.
+          </p>
+        </div>
+
+        <div class="directions-grid">
+
+          <article class="direction-card">
+            <div class="direction-icon">1</div>
+            <h3>Подготовка к школе</h3>
+            <p>
+              Мягкая подготовка ребёнка к школе без лишнего стресса.
+            </p>
+            <ul>
+              <li>чтение, письмо, счёт, логика;</li>
+              <li>развитие внимания, памяти и мелкой моторики;</li>
+              <li>развитие устной речи;</li>
+              <li>умение работать в группе и выполнять задания.</li>
+            </ul>
+          </article>
+
+          <article class="direction-card">
+            <div class="direction-icon">2</div>
+            <h3>Подготовка к ВПР, ОГЭ и ЕГЭ</h3>
+            <p>
+              Системная подготовка по школьным предметам.
+            </p>
+            <ul>
+              <li>математика, алгебра, геометрия;</li>
+              <li>география;</li>
+              <li>литература;</li>
+              <li>русский язык;</li>
+              <li>английский язык.</li>
+            </ul>
+          </article>
+
+          <article class="direction-card">
+            <div class="direction-icon">3</div>
+            <h3>Логопед-дефектолог</h3>
+            <p>
+              Помощь детям с речевыми трудностями и развитием коммуникации.
+            </p>
+            <ul>
+              <li>индивидуальные занятия;</li>
+              <li>групповые занятия;</li>
+              <li>коррекция речи;</li>
+              <li>развитие речевых навыков.</li>
+            </ul>
+          </article>
+
+          <article class="direction-card">
+            <div class="direction-icon">4</div>
+            <h3>Психолог</h3>
+            <p>
+              Поддержка детей, подростков и родителей.
+            </p>
+            <ul>
+              <li>арт-терапия;</li>
+              <li>нейрографика;</li>
+              <li>социальные изменения;</li>
+              <li>образовательные трудности;</li>
+              <li>эмоциональные проблемы;</li>
+              <li>самооценка и семейные консультации.</li>
+            </ul>
+          </article>
+
+          <article class="direction-card">
+            <div class="direction-icon">5</div>
+            <h3>Алгебра и геометрия</h3>
+            <p>
+              Репетиторство и подготовка к экзаменам с 1 по 11 класс.
+            </p>
+            <ul>
+              <li>базовый и профильный уровень;</li>
+              <li>подготовка к ОГЭ и ЕГЭ;</li>
+              <li>онлайн и офлайн;</li>
+              <li>индивидуально или в подгруппе.</li>
+            </ul>
+          </article>
+
+          <article class="direction-card">
+            <div class="direction-icon">6</div>
+            <h3>Танцевальная студия</h3>
+            <p>
+              Танцы для развития координации, уверенности и дисциплины.
+            </p>
+            <ul>
+              <li>для детей 5–13 лет;</li>
+              <li>ритмика и партер;</li>
+              <li>народный танец;</li>
+              <li>современный и эстрадный танец.</li>
+            </ul>
+          </article>
+
+          <article class="direction-card">
+            <div class="direction-icon">7</div>
+            <h3>Пилатес, мягкий фитнес, растяжка</h3>
+            <p>
+              Направление для взрослых, кому важны здоровье и снятие напряжения.
+            </p>
+            <ul>
+              <li>укрепление мышц;</li>
+              <li>улучшение осанки;</li>
+              <li>гибкость суставов;</li>
+              <li>снижение болей;</li>
+              <li>снятие стресса.</li>
+            </ul>
+          </article>
+
+          <article class="direction-card">
+            <div class="direction-icon">8</div>
+            <h3>Дополнительные занятия</h3>
+            <p>
+              Творческие и интеллектуальные направления.
+            </p>
+            <ul>
+              <li>изобразительное искусство;</li>
+              <li>шахматы и шашки;</li>
+              <li>основы рисунка;</li>
+              <li>английский и японский языки.</li>
+            </ul>
+          </article>
+
+        </div>
+
+        <div class="format-box" id="format">
+          <div class="format-item">
+            <b>Индивидуально</b>
+            <p>
+              Основной формат занятий. Педагог работает с конкретными задачами ребёнка.
+            </p>
+          </div>
+
+          <div class="format-item">
+            <b>Мини-группы</b>
+            <p>
+              Подходят для подготовки к школе, развития социальных навыков и учебной мотивации.
+            </p>
+          </div>
+
+          <div class="format-item">
+            <b>Онлайн</b>
+            <p>
+              Возможен онлайн-формат для отдельных направлений и консультаций.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section-white" id="schedule">
+      <div class="container">
+        <div class="section-head">
+          <h2>Расписание</h2>
+          <p>
+            Указаны основные временные интервалы из материалов школы. Актуальные свободные места
+            лучше уточнять по телефону или в Telegram.
+          </p>
+        </div>
+
+        <div class="schedule-grid">
+
+          <div class="schedule-card">
+            <h3>Подготовка к школе</h3>
+            <p><b>Пн/Ср:</b> 17:00, 19:00</p>
+            <p><b>Вт/Чт:</b> 18:30</p>
+            <p><b>Сб:</b> 13:00</p>
+            <p>Индивидуально или в мини-группе.</p>
+          </div>
+
+          <div class="schedule-card">
+            <h3>Алгебра / Геометрия</h3>
+            <p><b>Пн/Ср:</b> 15:00</p>
+            <p><b>Вт/Чт:</b> 15:00, 16:00, 17:00</p>
+            <p><b>Сб:</b> 10:00</p>
+            <p><b>Вс:</b> 12:00, 13:00, 15:00</p>
+          </div>
+
+          <div class="schedule-card">
+            <h3>Танцевальная студия</h3>
+            <p><b>Пн/Пт:</b> 18:00–19:00</p>
+            <p><b>Вт/Чт:</b> 17:30–18:30</p>
+            <p><b>Вт/Чт:</b> 16:30–17:30</p>
+            <p>Группы по возрасту.</p>
+          </div>
+
+          <div class="schedule-card">
+            <h3>Пилатес / фитнес</h3>
+            <p><b>Пн/Ср/Пт:</b> 20:00–21:00</p>
+            <p>Зал за ТД «Щелкунчик».</p>
+            <p>Для взрослых 18+.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="teachers">
+      <div class="container">
+        <div class="section-head">
+          <h2>Педагогический состав</h2>
+          <p>
+            В школе работают специалисты по подготовке к школе, школьным предметам,
+            психологии, творческим и развивающим направлениям.
+          </p>
+        </div>
+
+        <div class="teachers-grid">
+
+          <div class="teacher-card">
+            <div class="avatar">БИ</div>
+            <div>
+              <h3>Березина Ирина Валерьевна</h3>
+              <p>Руководитель и основатель школы. Педагог по подготовке к школе. Автор программ «Математика и Азбука ЛидерА». Репетитор по русскому языку и математике.</p>
+            </div>
+          </div>
+
+          <div class="teacher-card">
+            <div class="avatar">СО</div>
+            <div>
+              <h3>Стецько Олеся Андреевна</h3>
+              <p>Учитель английского и японского языков.</p>
+            </div>
+          </div>
+
+          <div class="teacher-card">
+            <div class="avatar">БЕ</div>
+            <div>
+              <h3>Белан Екатерина Павловна</h3>
+              <p>Учитель математики. Подготовка к ВПР, ОГЭ и ЕГЭ. Базовый и профильный уровни. Преподаватель физики.</p>
+            </div>
+          </div>
+
+          <div class="teacher-card">
+            <div class="avatar">КЭ</div>
+            <div>
+              <h3>Каймонова Эмма Петровна</h3>
+              <p>Учитель русского языка и литературы. Подготовка к ВПР, ОГЭ и ЕГЭ.</p>
+            </div>
+          </div>
+
+          <div class="teacher-card">
+            <div class="avatar">ВТ</div>
+            <div>
+              <h3>Виноградова Татьяна Ивановна</h3>
+              <p>Преподаватель изобразительного искусства.</p>
+            </div>
+          </div>
+
+          <div class="teacher-card">
+            <div class="avatar">БН</div>
+            <div>
+              <h3>Березин Никита Владимирович</h3>
+              <p>Педагог по шахматам и шашкам. Преподаватель основ рисунка.</p>
+            </div>
+          </div>
+
+          <div class="teacher-card">
+            <div class="avatar">ЭС</div>
+            <div>
+              <h3>Эйвазова Сима Мурсаловна</h3>
+              <p>Педагог-психолог: семейный, детский и подростковый психолог.</p>
+            </div>
+          </div>
+
+          <div class="teacher-card">
+            <div class="avatar">ТЯ</div>
+            <div>
+              <h3>Тирикова-Семенюк Яна Игоревна</h3>
+              <p>Психолог, нейропсихолог, дошкольный педагог.</p>
+            </div>
+          </div>
+
+          <div class="teacher-card">
+            <div class="avatar">СА</div>
+            <div>
+              <h3>Сажина Александра Сергеевна</h3>
+              <p>Учитель начальных классов. Педагог по подготовке к школе.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section telegram-section" id="telegram">
+      <div class="container">
+        <div class="telegram-card">
+          <div>
+            <h2>Мы в Telegram</h2>
+            <p>
+              В Telegram можно следить за новостями школы, актуальным расписанием,
+              объявлениями, свободными местами и важной информацией для родителей.
+            </p>
+          </div>
+
+          <a class="btn btn-green" href="https://web.telegram.org/a/#-1001720289521" target="_blank">
+            Перейти в Telegram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="contacts">
+      <div class="container">
+        <div class="section-head">
+          <h2>Контакты и запись</h2>
+          <p>
+            Позвоните или оставьте данные для записи. Актуальные свободные места
+            лучше уточнять напрямую.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-card">
+            <h3>Связаться со школой</h3>
+
+            <div class="contact-line">
+              <b>Телефон</b>
+              <a href="tel:+79027603747">8-902-760-37-47</a>
+            </div>
+
+            <div class="contact-line">
+              <b>Адрес</b>
+              г. Ангарск, 92/93, дом 19
+            </div>
+
+            <div class="contact-line">
+              <b>Telegram</b>
+              <a href="https://web.telegram.org/a/#-1001720289521" target="_blank">
+                Перейти в Telegram
+              </a>
+            </div>
+
+            <div class="contact-line">
+              <b>Формат занятий</b>
+              Основной формат — индивидуальные занятия. Также возможны мини-группы и онлайн.
+            </div>
+
+            <br>
+
+            <a class="btn btn-primary" href="tel:+79027603747">Позвонить</a>
+          </div>
+
+          <div class="form-card">
+            <h3>Быстрая заявка</h3>
+
+            <form id="requestForm">
+              <input type="text" id="name" placeholder="Ваше имя" required>
+
+              <input type="tel" id="phone" placeholder="Ваш телефон" required>
+
+              <select id="direction" required>
+                <option value="">Выберите направление</option>
+                <option>Подготовка к школе</option>
+                <option>Подготовка к ВПР, ОГЭ или ЕГЭ</option>
+                <option>Логопед-дефектолог</option>
+                <option>Психолог / нейропсихолог</option>
+                <option>Алгебра / геометрия</option>
+                <option>Танцевальная студия</option>
+                <option>Пилатес / мягкий фитнес</option>
+                <option>Другое направление</option>
+              </select>
+
+              <textarea id="comment" placeholder="Комментарий: возраст ребёнка, удобное время, онлайн или очно"></textarea>
+
+              <button class="btn btn-green" type="submit">
+                Сформировать заявку
+              </button>
+
+              <p class="small-text">
+                В этой версии сайта заявка не отправляется автоматически.
+                После нажатия текст заявки скопируется — его можно отправить в Telegram или сообщить по телефону.
+              </p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 ЛидерА школа детского развития</div>
+      <div>Ангарск, 92/93, дом 19 · 8-902-760-37-47</div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("requestForm");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const direction = document.getElementById("direction").value;
+      const comment = document.getElementById("comment").value.trim();
+
+      const readableText =
+        "Заявка с сайта ЛидерА:\n\n" +
+        "Имя: " + name + "\n" +
+        "Телефон: " + phone + "\n" +
+        "Направление: " + direction + "\n" +
+        "Комментарий: " + (comment || "Не указан");
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(readableText);
+      }
+
+      alert(
+        "Заявка сформирована и скопирована.\n\n" +
+        "Теперь её можно отправить администратору в Telegram или сообщить по телефону."
+      );
+    });
+  </script>
+
+</body>
+</html>
