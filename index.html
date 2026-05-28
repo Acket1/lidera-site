@@ -22,6 +22,8 @@
       --border: #e5e7eb;
       --shadow: 0 16px 40px rgba(17, 24, 39, 0.12);
       --radius: 22px;
+      /* Добавим новый цвет для кнопки ИИ */
+      --ai-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
 
     * {
@@ -122,6 +124,29 @@
 
     .menu a:hover {
       color: var(--red);
+    }
+
+    /* КНОПКА ДЛЯ БОТА (+ новая) */
+    .btn-ai {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 21px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 15px;
+      background: var(--ai-gradient);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(102, 126, 234, 0.35);
+    }
+
+    .btn-ai:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(102, 126, 234, 0.5);
     }
 
     .btn {
@@ -548,34 +573,72 @@
       font-size: 15px;
     }
 
-    .telegram-section {
+    /* 🔥 НОВАЯ СЕКЦИЯ БОТА 🔥 */
+    .bot-section {
       background:
-        radial-gradient(circle at top left, rgba(34, 184, 106, 0.16), transparent 30%),
-        linear-gradient(135deg, var(--blue-dark), var(--blue));
-      color: #fff;
+        radial-gradient(circle at top left, rgba(102, 126, 234, 0.15), transparent 30%),
+        linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+      color: var(--black);
     }
 
-    .telegram-card {
+    .bot-card {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 30px;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
       align-items: center;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.18);
+      background: #fff;
+      border: 1px solid var(--border);
       border-radius: 26px;
-      padding: 34px;
+      padding: 42px;
+      box-shadow: var(--shadow);
     }
 
-    .telegram-card h2 {
-      margin: 0 0 10px;
+    .bot-content h2 {
+      margin: 0 0 16px;
       font-size: clamp(28px, 4vw, 40px);
+      color: var(--blue);
     }
 
-    .telegram-card p {
-      margin: 0;
-      color: rgba(255,255,255,0.82);
+    .bot-content p {
+      margin: 0 0 24px;
+      color: var(--gray);
       font-size: 17px;
-      max-width: 760px;
+    }
+
+    .bot-icons {
+      display: flex;
+      gap: 16px;
+      margin: 24px 0 0;
+      flex-wrap: wrap;
+    }
+
+    .bot-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 12px;
+      background: rgba(34, 184, 106, 0.08);
+      color: var(--green-dark);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .tg-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: #24A1DE;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .tg-badge:hover {
+      background: #1a8cd8;
     }
 
     .contact-grid {
@@ -666,7 +729,7 @@
       .hero-grid,
       .about-grid,
       .contact-grid,
-      .telegram-card {
+      .bot-card {
         grid-template-columns: 1fr;
       }
 
@@ -728,7 +791,8 @@
       .teachers-grid,
       .schedule-grid,
       .features,
-      .format-box {
+      .format-box,
+      .bot-icons {
         grid-template-columns: 1fr;
       }
 
@@ -743,6 +807,10 @@
       .telegram-card,
       .format-box {
         padding: 22px;
+      }
+      
+      .bot-card {
+        padding: 32px 22px;
       }
     }
   </style>
@@ -776,11 +844,14 @@
         <a href="#format">Формат</a>
         <a href="#schedule">Расписание</a>
         <a href="#teachers">Педагоги</a>
-        <a href="#telegram">Telegram</a>
         <a href="#contacts">Контакты</a>
       </nav>
 
+      <!-- КНОПКА ДОБАВЛЕНА В МЕНЮ -->
       <a class="btn btn-primary" href="#contacts">Записаться</a>
+      <a class="btn-ai" href="https://t.me/LiderAhelpbot" target="_blank">
+        ❓ Спросить бота
+      </a>
     </div>
   </header>
 
@@ -1196,6 +1267,36 @@
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ⬇️ НОВАЯ СЕКЦИЯ С БОТОМ ⬇️ -->
+    <section class="section bot-section" id="bot">
+      <div class="container">
+        <div class="bot-card">
+          <div class="bot-content">
+            <h2>Вопросы остались? Спроси нашего ИИ!</h2>
+            <p>
+              Наш умный помощник ответит мгновенно на любые вопросы о школе, расписании, 
+              педагогах и записи на занятия. Он работает 24/7.
+            </p>
+            
+            <div class="bot-icons">
+              <div class="bot-icon">🤖 Быстро</div>
+              <div class="bot-icon">💡 Грамотно</div>
+              <div class="bot-icon">🕒 Круглосуточно</div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <a href="https://t.me/LiderAhelpbot" class="tg-badge">
+              ✈️ Перейти в @LiderAhelpbot
+            </a>
+            <p style="color: var(--gray); font-size: 14px;">
+              * Нажмите на кнопку и задайте любой вопрос — бот свяжется с администратором при необходимости.
+            </p>
+          </div>
         </div>
       </div>
     </section>
