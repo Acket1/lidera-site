@@ -1431,70 +1431,54 @@
   </footer>
 
   <script>
-    const form = document.getElementById("requestForm");
+<script>
+  const BOT_SERVER = "https://liderabot-production.up.railway.app";
 
-    async function copyTextToClipboard(text) {
-      if (navigator.clipboard && window.isSecureContext) {
-        try {
-          await navigator.clipboard.writeText(text);
-          return true;
-        } catch (error) {
-          // fallback ниже
-        }
-      }
+  const form = document.getElementById("requestForm");
 
-      const tempTextArea = document.createElement("textarea");
-      tempTextArea.value = text;
-      tempTextArea.setAttribute("readonly", "");
-      tempTextArea.style.position = "fixed";
-      tempTextArea.style.left = "-9999px";
-      tempTextArea.style.top = "0";
-      document.body.appendChild(tempTextArea);
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-      tempTextArea.focus();
-      tempTextArea.select();
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const direction = document.getElementById("direction").value;
+    const comment = document.getElementById("comment").value.trim();
 
-      let copied = false;
-      try {
-        copied = document.execCommand("copy");
-      } catch (error) {
-        copied = false;
-      }
-
-      document.body.removeChild(tempTextArea);
-      return copied;
+    if (!name || !phone) {
+      alert("Пожалуйста, заполните имя и телефон.");
+      return;
     }
 
-    form.addEventListener("submit", async function(event) {
-      event.preventDefault();
+    const button = form.querySelector("button[type='submit']");
+    const oldText = button.textContent;
+    button.disabled = true;
+    button.textContent = "Отправляем...";
 
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const direction = document.getElementById("direction").value;
-      const comment = document.getElementById("comment").value.trim();
-
-      const readableText =
-        "Заявка с сайта ЛидерА:\n\n" +
-        "Имя: " + name + "\n" +
-        "Телефон: " + phone + "\n" +
-        "Направление: " + direction + "\n" +
-        "Комментарий: " + (comment || "Не указан");
-
-      const copied = await copyTextToClipboard(readableText);
-
-      if (copied) {
-        alert(
-          "Заявка сформирована и скопирована ✅\n\n" +
-          "Теперь её можно отправить администратору в Telegram или сообщить по телефону."
-        );
-      } else {
-        alert(
-          "Заявка сформирована, но автоматическое копирование не сработало.\n\n" +
-          "Скопируйте текст вручную:\n\n" +
-          readableText
-        );
-      }
-    });
+    fetch(BOT_SERVER + "/send-request", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, phone, direction, comment })
+    })
+      .then(function (response) { return response.json(); })
+      .then(function (data) {
+        if (data.ok) {
+          alert("✅ Спасибо! Ваша заявка отправлена. С Вами свяжутся в ближайшее время.");
+          form.reset();
+        } else {
+          alert("Не удалось отправить заявку. Позвоните, пожалуйста: 8-902-760-37-47");
+        }
+      })
+      .catch(function () {
+        alert("Ошибка отправки. Позвоните, пожалуйста: 8-902-760-37-47");
+      })
+      .finally(function () {
+        button.disabled = false;
+        button.textContent = oldText;
+      });
+  });
+</script>
+</script>
+</script>
   </script>
 
 </body>
