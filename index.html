@@ -1,8 +1,3 @@
-Готово — собрал всё в один HTML-файл:  
-1) везде заменил упоминания формата на **«миниподгруппы или индивидуальные»**;  
-2) исправил **«Быструю заявку»**, чтобы она реально копировалась.
-
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -11,7 +6,7 @@
 
   <title>ЛидерА школа детского развития — Ангарск</title>
 
-  <meta name="description" content="ЛидерА школа детского развития в Ангарске: подготовка к школе, логопед, психолог, подготовка к ВПР, ОГЭ и ЕГЭ, танцевальная студия, пилатес, индивидуальные и онлайн занятия." />
+  <meta name="description" content="ЛидерА школа детского развития в Ангарске: подготовка к школе, логопед, психолог, подготовка к ВПР, ОГЭ и ЕГЭ, танцевальная студия, пилатес, занятия в миниподгруппах или индивидуально." />
 
   <style>
     :root {
@@ -774,8 +769,7 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .schedule-grid,
-      .format-box {
+      .schedule-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -945,8 +939,8 @@
           <div class="info-row">
             <div class="info-icon">★</div>
             <div>
-              <strong>Миниподгруппы или индивидуальные</strong>
-              <span>Так проходят занятия в школе.</span>
+              <strong>Формат занятий</strong>
+              <span>Миниподгруппы или индивидуальные.</span>
             </div>
           </div>
 
@@ -985,8 +979,8 @@
               творчество, танцы и мягкий фитнес.
             </p>
             <p>
-              Миниподгруппы или индивидуальные. Это помогает педагогу уделить максимум
-              внимания ребёнку, понять его уровень и подобрать подходящий темп обучения.
+              Формат занятий: миниподгруппы или индивидуальные. Это помогает педагогу уделить
+              максимум внимания ребёнку, понять его уровень и подобрать подходящий темп обучения.
             </p>
             <p>
               Связаться со школой и уточнить детали можно по телефону или в Telegram.
@@ -1056,7 +1050,7 @@
               <li>география;</li>
               <li>литература;</li>
               <li>русский язык;</li>
-              <li>английский язык;</li>
+              <li>английский язык.</li>
             </ul>
           </article>
 
@@ -1098,7 +1092,7 @@
             <ul>
               <li>базовый и профильный уровень;</li>
               <li>подготовка к ОГЭ и ЕГЭ;</li>
-              <li>миниподгруппы или индивидуальные;</li>
+              <li>миниподгруппы или индивидуальные.</li>
             </ul>
           </article>
 
@@ -1112,7 +1106,7 @@
               <li>для детей 5–13 лет;</li>
               <li>ритмика и партер;</li>
               <li>народный танец;</li>
-              <li>современный и эстрадный танец;</li>
+              <li>современный и эстрадный танец.</li>
             </ul>
           </article>
 
@@ -1127,7 +1121,7 @@
               <li>улучшение осанки;</li>
               <li>гибкость суставов;</li>
               <li>снижение болей;</li>
-              <li>снятие стресса;</li>
+              <li>снятие стресса.</li>
             </ul>
           </article>
 
@@ -1141,7 +1135,7 @@
               <li>изобразительное искусство;</li>
               <li>шахматы и шашки;</li>
               <li>основы рисунка;</li>
-              <li>английский и японский языки;</li>
+              <li>английский и японский языки.</li>
             </ul>
           </article>
 
@@ -1375,8 +1369,8 @@
             </div>
 
             <div class="contact-line">
-              <b>Миниподгруппы или индивидуальные</b>
-              Так проходят занятия в школе.
+              <b>Формат занятий</b>
+              Миниподгруппы или индивидуальные.
             </div>
 
             <br>
@@ -1404,15 +1398,14 @@
                 <option>Другое направление</option>
               </select>
 
-              <textarea id="comment" placeholder="Комментарий: возраст ребёнка, удобное время, онлайн или очно"></textarea>
+              <textarea id="comment" placeholder="Комментарий: возраст ребёнка, удобное время, миниподгруппа или индивидуально"></textarea>
 
               <button class="btn btn-green" type="submit">
                 Сформировать заявку
               </button>
 
               <p class="small-text">
-                В этой версии сайта заявка не отправляется автоматически.
-                После нажатия текст заявки скопируется — его можно отправить в Telegram или сообщить по телефону.
+                Заявка будет отправлена администратору школы. С Вами свяжутся в ближайшее время.
               </p>
             </form>
           </div>
@@ -1431,58 +1424,51 @@
   </footer>
 
   <script>
-<script>
-  const BOT_SERVER = "https://liderabot-production.up.railway.app";
+    const BOT_SERVER = "https://liderabot-production.up.railway.app";
 
-  const form = document.getElementById("requestForm");
+    const form = document.getElementById("requestForm");
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const direction = document.getElementById("direction").value;
-    const comment = document.getElementById("comment").value.trim();
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const direction = document.getElementById("direction").value;
+      const comment = document.getElementById("comment").value.trim();
 
-    if (!name || !phone) {
-      alert("Пожалуйста, заполните имя и телефон.");
-      return;
-    }
+      if (!name || !phone) {
+        alert("Пожалуйста, заполните имя и телефон.");
+        return;
+      }
 
-    const button = form.querySelector("button[type='submit']");
-    const oldText = button.textContent;
-    button.disabled = true;
-    button.textContent = "Отправляем...";
+      const button = form.querySelector("button[type='submit']");
+      const oldText = button.textContent;
+      button.disabled = true;
+      button.textContent = "Отправляем...";
 
-    fetch(BOT_SERVER + "/send-request", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, phone, direction, comment })
-    })
-      .then(function (response) { return response.json(); })
-      .then(function (data) {
-        if (data.ok) {
-          alert("✅ Спасибо! Ваша заявка отправлена. С Вами свяжутся в ближайшее время.");
-          form.reset();
-        } else {
-          alert("Не удалось отправить заявку. Позвоните, пожалуйста: 8-902-760-37-47");
-        }
+      fetch(BOT_SERVER + "/send-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, direction, comment })
       })
-      .catch(function () {
-        alert("Ошибка отправки. Позвоните, пожалуйста: 8-902-760-37-47");
-      })
-      .finally(function () {
-        button.disabled = false;
-        button.textContent = oldText;
-      });
-  });
-</script>
-</script>
-</script>
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+          if (data.ok) {
+            alert("✅ Спасибо! Ваша заявка отправлена. С Вами свяжутся в ближайшее время.");
+            form.reset();
+          } else {
+            alert("Не удалось отправить заявку. Позвоните, пожалуйста: 8-902-760-37-47");
+          }
+        })
+        .catch(function () {
+          alert("Ошибка отправки. Позвоните, пожалуйста: 8-902-760-37-47");
+        })
+        .finally(function () {
+          button.disabled = false;
+          button.textContent = oldText;
+        });
+    });
   </script>
 
 </body>
 </html>
-```
-
-Если хочешь, следующим сообщением я могу ещё сделать **аккуратную мини-версию этого же кода только с заменёнными местами**, чтобы тебе было проще вставить изменения вручную.
