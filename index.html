@@ -80,14 +80,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
+      gap: 16px;
+      flex-wrap: nowrap;
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 14px;
+      flex-shrink: 0;
     }
 
     .logo img {
@@ -112,18 +113,29 @@
 
     .menu {
       display: flex;
-      gap: 18px;
+      gap: 16px;
       align-items: center;
       font-size: 15px;
       color: #25304a;
+      flex: 1;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .menu a {
       transition: 0.2s;
+      white-space: nowrap;
     }
 
     .menu a:hover {
       color: var(--red);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
     .btn {
@@ -131,13 +143,14 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 13px 21px;
+      padding: 12px 18px;
       border-radius: 999px;
       font-weight: 700;
       border: none;
       cursor: pointer;
       transition: 0.2s;
-      font-size: 15px;
+      font-size: 14px;
+      white-space: nowrap;
     }
 
     .btn-primary {
@@ -178,13 +191,13 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 13px 21px;
+      padding: 12px 18px;
       border-radius: 999px;
       font-weight: 700;
       border: none;
       cursor: pointer;
       transition: 0.2s;
-      font-size: 15px;
+      font-size: 14px;
       background: var(--ai-gradient);
       color: #fff;
       box-shadow: 0 12px 28px rgba(102, 126, 234, 0.35);
@@ -755,6 +768,13 @@
       font-size: 14px;
     }
 
+    /* Планшеты: прячем текстовое меню, кнопки оставляем */
+    @media (max-width: 1100px) {
+      .menu {
+        display: none;
+      }
+    }
+
     @media (max-width: 1050px) {
       .hero-grid,
       .about-grid,
@@ -772,13 +792,14 @@
       .schedule-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .menu {
-        display: none;
-      }
     }
 
     @media (max-width: 640px) {
+      /* Шапка больше не липнет — обычная, наверху страницы */
+      .header {
+        position: static;
+      }
+
       .topbar-inner {
         display: block;
       }
@@ -789,6 +810,13 @@
 
       .nav {
         min-height: 70px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .nav-actions {
+        width: 100%;
+        flex-direction: column;
       }
 
       .logo img {
@@ -883,10 +911,12 @@
         <a href="#contacts">Контакты</a>
       </nav>
 
-      <a class="btn btn-primary" href="#contacts">Записаться</a>
-      <a class="btn-ai" href="https://t.me/LiderAhelpbot" target="_blank" rel="noopener noreferrer">
-        ❓ Спросить бота
-      </a>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="#contacts">Записаться</a>
+        <a class="btn-ai" href="https://t.me/LiderAhelpbot" target="_blank" rel="noopener noreferrer">
+          ❓ Спросить бота
+        </a>
+      </div>
     </div>
   </header>
 
